@@ -1049,7 +1049,7 @@
             End If
             With OleDBC
                 .Connection = conn
-                .CommandText = "SELECT convert(date,datefrom) AS DATES,dbo.tblLoomSectionTR.LOOMSNO,dbo.tblLoomSectionTR.OPERATOR,dbo.tblLoomSectionTR.PRODUCTION," & _
+                .CommandText = "SELECT convert(date,datefrom) AS DATES,dbo.tblLoomSectionTR.LOOMSNO,'',dbo.tblLoomSectionTR.PRODUCTION," & _
                              "dbo.tblLoomSectionTR.EFFIENCY,dbo.tblLoomSectionTR.DOFFEDL,dbo.tblLoomSectionTR.DOFFEDWT,dbo.tblLoomSectionTR.WASTE FROM dbo.tblLoomSection INNER JOIN dbo.tblLoomSectionTR " & _
                                          "ON dbo.tblLoomSection.CLSNO = dbo.tblLoomSectionTR.CLSNO " & _
                                          "where DATEFROM between '" & Format(dfrom.Value, "MM/dd/yyyy") & "' and dateadd(day,1,'" & Format(dto.Value, "MM/dd/yyyy") & "') " & _
@@ -1483,6 +1483,7 @@
                 .Columns.Add("date")
                 .Columns.Add("NAME")
                 .Columns.Add("EFFICIENCY")
+                .Columns.Add("COUNT")
                 .Columns.Add("WASTE")
                 .Columns.Add("NOOFWORKEDHOURS")
                 .Columns.Add("LATE")
@@ -1493,6 +1494,99 @@
                     If cmbGrouping.Text = "Per Operator" Then
                         gn = OleDBDR.Item(1)
                         st = "Per Operator"
+                    End If
+                    Dim COUNT As Integer
+                    If OleDBDR.Item(2) <> "0" Then
+                        COUNT = "1"
+                    Else
+                        COUNT = "0"
+                    End If
+                    dt.Rows.Add(lbltypeOfReport.Text,
+                                gn,
+                                st,
+                                Format(dfrom.Value, "MMMM dd, yyyy") & " - " & Format(dto.Value, "MMMM dd, yyyy"),
+                                OleDBDR.Item(0),
+                                OleDBDR.Item(1),
+                                OleDBDR.Item(2),
+                                COUNT,
+                                OleDBDR.Item(3),
+                                OleDBDR.Item(4),
+                                OleDBDR.Item(5))
+                End While
+            Else
+                MsgBox("No Data for this Date Range", MsgBoxStyle.Exclamation, "Sorry")
+                Exit Sub
+
+            End If
+            Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
+            rptDoc = New PerformanceReport
+            rptDoc.SetDataSource(dt)
+            CrystalReportViewer1.ReportSource = rptDoc
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Sub PerOperatorCSReport()
+        Dim gn As String
+        Dim st As String
+        Dim dformat As String
+
+
+        Try
+            If conn.State = ConnectionState.Open Then
+                OleDBC.Dispose()
+                conn.Close()
+            End If
+            If conn.State <> ConnectionState.Open Then
+                ConnectDatabase()
+            End If
+            With OleDBC
+                .Connection = conn
+                .CommandText = "SELECT dbo.tblEmployeesInfo.NAME, " & _
+                                "(SUM(dbo.tblLoomSectionTR.EFFIENCY)/COUNT(EFFIENCY))/100, " & _
+                                "sum(dbo.tblLoomSectionTR.DOFFEDL) as DOFFEDL, " & _
+                                "Sum(dbo.tblFPITR.inputQTY) as inputQTY, " & _
+                                "Sum(dbo.tblFPITR.netQTY) as netQTY, " & _
+                                "Sum(dbo.tblFPITR.weavReject) as WeavReject " & _
+                                "FROM " & _
+                                "dbo.tblLoomSectionTR " & _
+                                "INNER JOIN dbo.tblEmployeesInfo ON dbo.tblEmployeesInfo.BIONO = dbo.tblLoomSectionTR.BIONO " & _
+                                "INNER JOIN dbo.tblLoomSection ON dbo.tblLoomSection.CLSNO = dbo.tblLoomSectionTR.CLSNO " & _
+                                "INNER JOIN dbo.tblCSRTR ON dbo.tblLoomSectionTR.rollNo = dbo.tblCSRTR.rollNo " & _
+                                "INNER JOIN dbo.tblFPITR ON dbo.tblCSRTR.CSRITEMNO = dbo.tblFPITR.CSRITEMNO " & _
+                                "where CONVERT(DATE,datefrom) between '" & Format(dfrom.Value, "MM/dd/yyyy") & "' and dateadd(day,1,'" & Format(dto.Value, "MM/dd/yyyy") & "') " & _
+                                "GROUP BY dbo.tblEmployeesInfo.NAME " & _
+                                "order by inputQTY DESC "
+
+
+            End With
+            OleDBDR = OleDBC.ExecuteReader
+            Dim dt As New DataTable
+            With dt
+
+                .Columns.Add("typeOfReport")
+                .Columns.Add("groupname")
+                .Columns.Add("searchType")
+                .Columns.Add("dateRange")
+                .Columns.Add("NAME")
+                .Columns.Add("EFFICIENCY")
+                .Columns.Add("PRODUCTIONMETERS")
+                .Columns.Add("INPUT")
+                .Columns.Add("NET")
+                .Columns.Add("REJECT")
+
+            End With
+            If OleDBDR.HasRows Then
+                While OleDBDR.Read
+                    If cmbGrouping.Text = "Per Operator" Then
+                        gn = OleDBDR.Item(0)
+                        st = "Per Operator"
+                    End If
+                    Dim COUNT As Integer
+                    If OleDBDR.Item(2) <> "0" Then
+                        COUNT = "1"
+                    Else
+                        COUNT = "0"
                     End If
                     dt.Rows.Add(lbltypeOfReport.Text,
                                 gn,
@@ -1508,10 +1602,9 @@
             Else
                 MsgBox("No Data for this Date Range", MsgBoxStyle.Exclamation, "Sorry")
                 Exit Sub
-
             End If
             Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
-            rptDoc = New PerformanceReport
+            rptDoc = New PerformanceCSReport
             rptDoc.SetDataSource(dt)
             CrystalReportViewer1.ReportSource = rptDoc
         Catch ex As Exception
@@ -1784,8 +1877,10 @@
                 End If
             ElseIf lbltypeOfReport.Text = "Cutting & Sewing Production Report" Then
                 CSProductionReport()
-            ElseIf lbltypeOfReport.Text = "Performance Report (Per Operator)" Then
+            ElseIf lbltypeOfReport.Text = "Operator Performance Report (Attendance / Efficiency)" Then
                 PerOperatorReport()
+            ElseIf lbltypeOfReport.Text = "Operator Performance Report (Production)" Then
+                PerOperatorCSReport()
             End If
 
             End If

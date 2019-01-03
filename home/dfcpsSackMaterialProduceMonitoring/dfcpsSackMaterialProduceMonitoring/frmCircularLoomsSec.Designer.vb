@@ -38,6 +38,8 @@ Partial Class frmCircularLoomsSec
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCLSNO = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtColor = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TXTWASTE = New System.Windows.Forms.TextBox()
         Me.lblRollNo = New System.Windows.Forms.TextBox()
@@ -71,19 +73,6 @@ Partial Class frmCircularLoomsSec
         Me.cmbLoomsNo = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblprod = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lbleff = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.txtColor = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -99,6 +88,18 @@ Partial Class frmCircularLoomsSec
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblprod = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lbleff = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -242,6 +243,7 @@ Partial Class frmCircularLoomsSec
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button5)
         Me.GroupBox2.Controls.Add(Me.txtColor)
         Me.GroupBox2.Controls.Add(Me.Label23)
         Me.GroupBox2.Controls.Add(Me.Label22)
@@ -281,6 +283,22 @@ Partial Class frmCircularLoomsSec
         Me.GroupBox2.Size = New System.Drawing.Size(767, 252)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
+        '
+        'txtColor
+        '
+        Me.txtColor.Location = New System.Drawing.Point(132, 164)
+        Me.txtColor.Name = "txtColor"
+        Me.txtColor.Size = New System.Drawing.Size(134, 20)
+        Me.txtColor.TabIndex = 48
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(40, 167)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(44, 13)
+        Me.Label23.TabIndex = 47
+        Me.Label23.Text = "COLOR"
         '
         'Label22
         '
@@ -576,100 +594,6 @@ Partial Class frmCircularLoomsSec
         Me.dgv.Size = New System.Drawing.Size(1237, 304)
         Me.dgv.TabIndex = 6
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(526, 601)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 44)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "SAVE"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(632, 601)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 44)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "CANCEL"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblprod, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.lbleff})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 656)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1259, 22)
-        Me.StatusStrip1.TabIndex = 33
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(160, 17)
-        Me.ToolStripStatusLabel1.Text = "TOTAL METER'S PRODUCED :"
-        '
-        'lblprod
-        '
-        Me.lblprod.Name = "lblprod"
-        Me.lblprod.Size = New System.Drawing.Size(13, 17)
-        Me.lblprod.Text = "0"
-        '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(22, 17)
-        Me.ToolStripStatusLabel3.Text = "     "
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(101, 17)
-        Me.ToolStripStatusLabel2.Text = "TOTAL EFFIENCY :"
-        '
-        'lbleff
-        '
-        Me.lbleff.Name = "lbleff"
-        Me.lbleff.Size = New System.Drawing.Size(13, 17)
-        Me.lbleff.Text = "0"
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(108, 26)
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
-        '
-        'ContextMenuStrip2
-        '
-        Me.ContextMenuStrip2.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
-        '
-        'txtColor
-        '
-        Me.txtColor.Location = New System.Drawing.Point(132, 164)
-        Me.txtColor.Name = "txtColor"
-        Me.txtColor.Size = New System.Drawing.Size(134, 20)
-        Me.txtColor.TabIndex = 48
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(40, 167)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(44, 13)
-        Me.Label23.TabIndex = 47
-        Me.Label23.Text = "COLOR"
-        '
         'Column1
         '
         Me.Column1.HeaderText = "LOOM NO."
@@ -773,6 +697,93 @@ Partial Class frmCircularLoomsSec
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         Me.Column10.Width = 200
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(526, 601)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 44)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "SAVE"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(632, 601)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(100, 44)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "CANCEL"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblprod, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.lbleff})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 656)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(1259, 22)
+        Me.StatusStrip1.TabIndex = 33
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(160, 17)
+        Me.ToolStripStatusLabel1.Text = "TOTAL METER'S PRODUCED :"
+        '
+        'lblprod
+        '
+        Me.lblprod.Name = "lblprod"
+        Me.lblprod.Size = New System.Drawing.Size(13, 17)
+        Me.lblprod.Text = "0"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(22, 17)
+        Me.ToolStripStatusLabel3.Text = "     "
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(101, 17)
+        Me.ToolStripStatusLabel2.Text = "TOTAL EFFIENCY :"
+        '
+        'lbleff
+        '
+        Me.lbleff.Name = "lbleff"
+        Me.lbleff.Size = New System.Drawing.Size(13, 17)
+        Me.lbleff.Text = "0"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(108, 26)
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(272, 208)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(47, 23)
+        Me.Button5.TabIndex = 59
+        Me.Button5.Text = ">>>"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'frmCircularLoomsSec
         '
@@ -878,4 +889,5 @@ Partial Class frmCircularLoomsSec
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column12 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button5 As System.Windows.Forms.Button
 End Class

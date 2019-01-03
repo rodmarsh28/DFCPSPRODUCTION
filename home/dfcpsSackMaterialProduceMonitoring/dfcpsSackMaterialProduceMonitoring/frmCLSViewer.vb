@@ -61,7 +61,7 @@
                 .CommandText = "SELECT dbo.tblLoomSection.CLSNO,dbo.tblLoomSection.DATEFROM,dbo.tblLoomSection.DATETO,dbo.tblLoomSection.COSTUMER," & _
                     "dbo.tblLoomSection.MAINTENANCE,dbo.tblLoomSection.VISOR,dbo.tblLoomSectionTR.LOOMSNO,dbo.tblLoomSectionTR.MESH,dbo.tblLoomSectionTR.WIDTH," & _
                     "dbo.tblLoomSectionTR.RPM,dbo.tblLoomSectionTR.BEGINNING,dbo.tblLoomSectionTR.ENDING,dbo.tblLoomSectionTR.rollNo,dbo.tblLoomSectionTR.DOFFEDL," & _
-                    "dbo.tblLoomSectionTR.DOFFEDWT,dbo.tblLoomSectionTR.COLOR,dbo.tblLoomSectionTR.PRODUCTION,dbo.tblLoomSectionTR.EFFIENCY,dbo.tblLoomSectionTR.OPERATOR,dbo.tblLoomSectionTR.WASTE,dbo.tblLoomSectionTR.REMARKS " & _
+                    "dbo.tblLoomSectionTR.DOFFEDWT,dbo.tblLoomSectionTR.COLOR,dbo.tblLoomSectionTR.PRODUCTION,dbo.tblLoomSectionTR.EFFIENCY,dbo.tblLoomSectionTR.BIONO,dbo.tblLoomSectionTR.WASTE,dbo.tblLoomSectionTR.REMARKS " & _
                     "FROM dbo.tblLoomSection INNER JOIN dbo.tblLoomSectionTR ON dbo.tblLoomSection.CLSNO = dbo.tblLoomSectionTR.CLSNO " & _
                     "where dbo.tblLoomSection.CLSNO = '" & dgv.CurrentRow.Cells(0).Value & "'"
 
@@ -106,6 +106,7 @@
                 End While
             End If
             frmCircularLoomsSec.dgv.ClearSelection()
+            frmEmployeesList.EmployeesList()
             frmCircularLoomsSec.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message)

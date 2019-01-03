@@ -61,6 +61,7 @@ Partial Class frmMain
         Me.ProducedAndWasteGraphicalReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CuttingSewingProductionReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoomsProductionReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PerOperatorPerformanceReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BagInventoryReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SETTINGSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatabaseSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -74,7 +75,8 @@ Partial Class frmMain
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PerOperatorPerformanceReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ATTENDANCEEFFICIENCYToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -308,6 +310,13 @@ Partial Class frmMain
         Me.LoomsProductionReportToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
         Me.LoomsProductionReportToolStripMenuItem.Text = "Looms Production Report"
         '
+        'PerOperatorPerformanceReportToolStripMenuItem
+        '
+        Me.PerOperatorPerformanceReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ATTENDANCEEFFICIENCYToolStripMenuItem, Me.ProductionToolStripMenuItem})
+        Me.PerOperatorPerformanceReportToolStripMenuItem.Name = "PerOperatorPerformanceReportToolStripMenuItem"
+        Me.PerOperatorPerformanceReportToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
+        Me.PerOperatorPerformanceReportToolStripMenuItem.Text = "Per Operator Performance Report"
+        '
         'BagInventoryReportToolStripMenuItem
         '
         Me.BagInventoryReportToolStripMenuItem.Name = "BagInventoryReportToolStripMenuItem"
@@ -388,11 +397,17 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
         '
-        'PerOperatorPerformanceReportToolStripMenuItem
+        'ATTENDANCEEFFICIENCYToolStripMenuItem
         '
-        Me.PerOperatorPerformanceReportToolStripMenuItem.Name = "PerOperatorPerformanceReportToolStripMenuItem"
-        Me.PerOperatorPerformanceReportToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
-        Me.PerOperatorPerformanceReportToolStripMenuItem.Text = "Per Operator Performance Report"
+        Me.ATTENDANCEEFFICIENCYToolStripMenuItem.Name = "ATTENDANCEEFFICIENCYToolStripMenuItem"
+        Me.ATTENDANCEEFFICIENCYToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.ATTENDANCEEFFICIENCYToolStripMenuItem.Text = "Attendance / Efficiency"
+        '
+        'ProductionToolStripMenuItem
+        '
+        Me.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem"
+        Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.ProductionToolStripMenuItem.Text = "Production"
         '
         'frmMain
         '
@@ -466,5 +481,7 @@ Partial Class frmMain
     Friend WithEvents AddEditEmployeesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddAttendaceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PerOperatorPerformanceReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ATTENDANCEEFFICIENCYToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ProductionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

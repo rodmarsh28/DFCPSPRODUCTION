@@ -1,4 +1,5 @@
 ﻿Public Class frmEmployeesList
+    Public FORMSTATUS As String
     Sub EmployeesList()
         Dim c As Integer = 0
         Try
@@ -43,10 +44,14 @@
     End Sub
 
     Private Sub dgv_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgv.CellMouseDoubleClick
-        frmAddAttendance.txtBioNo.Text = dgv.CurrentRow.Cells(0).Value
-        frmAddAttendance.txtName.Text = dgv.CurrentRow.Cells(1).Value
-        frmAddAttendance.txtPos.Text = dgv.CurrentRow.Cells(2).Value
-      
+        If FORMSTATUS = "CLS" Then
+            frmCircularLoomsSec.biono = dgv.CurrentRow.Cells(0).Value
+            frmCircularLoomsSec.txtOperator.Text = dgv.CurrentRow.Cells(1).Value
+        ElseIf FORMSTATUS = "ATT" Then
+            frmAddAttendance.txtBioNo.Text = dgv.CurrentRow.Cells(0).Value
+            frmAddAttendance.txtName.Text = dgv.CurrentRow.Cells(1).Value
+            frmAddAttendance.txtPos.Text = dgv.CurrentRow.Cells(2).Value
+        End If
         Me.Close()
     End Sub
 End Class

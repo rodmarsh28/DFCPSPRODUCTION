@@ -292,6 +292,12 @@
     <Compile Include="frmSales.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\PerformanceCSReport.vb">
+      <DependentUpon>PerformanceCSReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\PerformanceReport.vb">
       <DependentUpon>PerformanceReport.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -502,6 +508,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSales.resx">
       <DependentUpon>frmSales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PerformanceCSReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PerformanceCSReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PerformanceReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

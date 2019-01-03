@@ -30,15 +30,6 @@ Partial Class frmAddAttendance
         Me.txtBioNo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtWhours = New System.Windows.Forms.TextBox()
@@ -61,6 +52,18 @@ Partial Class frmAddAttendance
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.txtAbsent = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -124,69 +127,13 @@ Partial Class frmAddAttendance
         Me.dgv.AllowUserToResizeRows = False
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
         Me.dgv.Location = New System.Drawing.Point(12, 198)
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(890, 377)
+        Me.dgv.Size = New System.Drawing.Size(993, 377)
         Me.dgv.TabIndex = 12
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "BIONO."
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "NAME"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 140
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "IN (AM)"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "OUT (AM)"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "IN (PM)"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "OUT (PM)"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "NO. OF WORK HOURS"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "LATE (MINS)"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "date"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Visible = False
         '
         'Button1
         '
@@ -199,6 +146,8 @@ Partial Class frmAddAttendance
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtAbsent)
+        Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtWhours)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -216,14 +165,14 @@ Partial Class frmAddAttendance
         Me.GroupBox1.Controls.Add(Me.txtInA)
         Me.GroupBox1.Location = New System.Drawing.Point(371, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(531, 180)
+        Me.GroupBox1.Size = New System.Drawing.Size(634, 180)
         Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "TIME ATTENDANCE"
         '
         'txtWhours
         '
-        Me.txtWhours.Location = New System.Drawing.Point(448, 72)
+        Me.txtWhours.Location = New System.Drawing.Point(458, 70)
         Me.txtWhours.Name = "txtWhours"
         Me.txtWhours.Size = New System.Drawing.Size(73, 20)
         Me.txtWhours.TabIndex = 71
@@ -231,7 +180,7 @@ Partial Class frmAddAttendance
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(372, 75)
+        Me.Label10.Location = New System.Drawing.Point(382, 73)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(57, 13)
         Me.Label10.TabIndex = 70
@@ -257,7 +206,7 @@ Partial Class frmAddAttendance
         '
         'txtLate
         '
-        Me.txtLate.Location = New System.Drawing.Point(448, 97)
+        Me.txtLate.Location = New System.Drawing.Point(458, 117)
         Me.txtLate.Name = "txtLate"
         Me.txtLate.Size = New System.Drawing.Size(73, 20)
         Me.txtLate.TabIndex = 67
@@ -265,7 +214,7 @@ Partial Class frmAddAttendance
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(372, 100)
+        Me.Label8.Location = New System.Drawing.Point(382, 120)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(70, 13)
         Me.Label8.TabIndex = 66
@@ -358,7 +307,7 @@ Partial Class frmAddAttendance
         '
         Me.Button2.BackColor = System.Drawing.Color.DodgerBlue
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(460, 594)
+        Me.Button2.Location = New System.Drawing.Point(511, 594)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(133, 46)
         Me.Button2.TabIndex = 53
@@ -369,7 +318,7 @@ Partial Class frmAddAttendance
         '
         Me.Button4.BackColor = System.Drawing.Color.DodgerBlue
         Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(321, 594)
+        Me.Button4.Location = New System.Drawing.Point(372, 594)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(133, 46)
         Me.Button4.TabIndex = 52
@@ -393,12 +342,90 @@ Partial Class frmAddAttendance
         Me.ContextMenuStrip2.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
         '
+        'txtAbsent
+        '
+        Me.txtAbsent.Location = New System.Drawing.Point(458, 93)
+        Me.txtAbsent.Name = "txtAbsent"
+        Me.txtAbsent.Size = New System.Drawing.Size(73, 20)
+        Me.txtAbsent.TabIndex = 73
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(382, 97)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(50, 13)
+        Me.Label11.TabIndex = 72
+        Me.Label11.Text = "ABSENT"
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "BIONO."
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "NAME"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 140
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "IN (AM)"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "OUT (AM)"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "IN (PM)"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "OUT (PM)"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "NO. OF WORK HOURS"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "ABSENT HOURS"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "LATE (MINS)"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "date"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Visible = False
+        '
         'frmAddAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(914, 652)
+        Me.ClientSize = New System.Drawing.Size(1017, 652)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.GroupBox1)
@@ -451,6 +478,10 @@ Partial Class frmAddAttendance
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ContextMenuStrip2 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents txtWhours As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtAbsent As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -458,8 +489,7 @@ Partial Class frmAddAttendance
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents txtWhours As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

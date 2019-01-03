@@ -24,6 +24,7 @@
     Public editmode As Boolean = False
     Dim rolls As String
     Dim looms As String
+    Public biono As String
     Sub CLEAR()
         lblRollNo.Text = "0"
         txtDoffed.Text = ""
@@ -370,10 +371,11 @@
             getLoomsNo()
             lblRollNo.Text = "0"
             TXTWASTE.Text = "0.00"
+            frmEmployeesList.EmployeesList()
             'generateRollNo()
         End If
         
-        autoOperator()
+        'autoOperator()
         txtWidth.Enabled = False
         txtDoffed.Enabled = False
         txtDoffedWt.Enabled = False
@@ -452,7 +454,6 @@
             txtDoffed.Enabled = False
             txtDoffedWt.Enabled = False
             txtRPM.Enabled = False
-            txtOperator.Enabled = False
             txtBeginning.Enabled = False
             txtEnding.Enabled = False
             txtRemarks.Enabled = False
@@ -465,7 +466,6 @@
             txtDoffed.Enabled = True
             txtDoffedWt.Enabled = True
             txtRPM.Enabled = True
-            txtOperator.Enabled = True
             txtBeginning.Enabled = True
             txtEnding.Enabled = True
             txtRemarks.Enabled = True
@@ -514,7 +514,7 @@
         dgv.Item(9, c).Value = txtColor.Text
         dgv.Item(10, c).Value = txtProduction.Text
         dgv.Item(11, c).Value = txtEffiency.Text
-        dgv.Item(12, c).Value = txtOperator.Text
+        dgv.Item(12, c).Value = biono
         dgv.Item(13, c).Value = TXTWASTE.Text
         dgv.Item(14, c).Value = txtRemarks.Text
 
@@ -749,5 +749,10 @@
 
         txtEffiency.Text = Format(effs, "N")
         txtProduction.Text = prod
+    End Sub
+
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        frmEmployeesList.FORMSTATUS = "CLS"
+        frmEmployeesList.ShowDialog()
     End Sub
 End Class

@@ -1,6 +1,7 @@
 ﻿Public Class frmAddAttendance
     Dim WorkedHours As Integer
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        frmEmployeesList.FORMSTATUS = "ATT"
         frmEmployeesList.ShowDialog()
     End Sub
     Sub clear()
@@ -8,6 +9,7 @@
         txtName.Text = ""
         txtPos.Text = ""
         txtLate.Text = "0"
+        txtAbsent.Text = "0"
     End Sub
 
     Private Sub frmAddAttendance_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -43,8 +45,9 @@
         dgv.Item(5, R).Value = txtOutP.Text
         'dgv.Item(6, R).Value = WorkedHours
         dgv.Item(6, R).Value = txtWhours.Text
-        dgv.Item(7, R).Value = txtLate.Text
-        dgv.Item(8, R).Value = txtDate.Text
+        dgv.Item(7, R).Value = txtAbsent.Text
+        dgv.Item(8, R).Value = txtLate.Text
+        dgv.Item(9, R).Value = txtDate.Text
         clear()
         For Each row As DataGridViewRow In frmEmployeesList.dgv.SelectedRows
             frmEmployeesList.dgv.Rows.Remove(row)
@@ -76,7 +79,8 @@
                                 "','" & dgv.Item(4, col).Value & _
                                 "','" & dgv.Item(5, col).Value & _
                                 "','" & dgv.Item(6, col).Value & _
-                                "','" & dgv.Item(7, col).Value & "') "
+                                "','" & dgv.Item(7, col).Value & _
+                                "','" & dgv.Item(8, col).Value & "') "
                         .ExecuteNonQuery()
                     End With
                     col = col + 1
@@ -135,5 +139,6 @@
     Private Sub frmAddAttendance_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         txtWhours.Text = "0"
         txtLate.Text = "0"
+        txtAbsent.Text = "0"
     End Sub
 End Class

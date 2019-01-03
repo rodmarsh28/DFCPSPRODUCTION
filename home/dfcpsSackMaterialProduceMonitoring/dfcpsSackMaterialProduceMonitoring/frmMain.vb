@@ -429,9 +429,20 @@ Public Class frmMain
     End Sub
 
     Private Sub PerOperatorPerformanceReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PerOperatorPerformanceReportToolStripMenuItem.Click
+        
+    End Sub
+
+    Private Sub ATTENDANCEEFFICIENCYToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ATTENDANCEEFFICIENCYToolStripMenuItem.Click
         frmReportViewer.cmbGrouping.Items.Clear()
         frmReportViewer.cmbGrouping.Items.Add("Per Operator")
-        frmReportViewer.lbltypeOfReport.Text = "Performance Report (Per Operator)"
+        frmReportViewer.lbltypeOfReport.Text = "Operator Performance Report (Attendance / Efficiency)"
+        frmReportViewer.ShowDialog()
+    End Sub
+
+    Private Sub ProductionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductionToolStripMenuItem.Click
+        frmReportViewer.cmbGrouping.Items.Clear()
+        frmReportViewer.cmbGrouping.Items.Add("Per Operator")
+        frmReportViewer.lbltypeOfReport.Text = "Operator Performance Report (Production)"
         frmReportViewer.ShowDialog()
     End Sub
 End Class

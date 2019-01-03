@@ -47,6 +47,8 @@ Partial Public Class DataSet1
     
     Private tablePerOperatorReportTable As PerOperatorReportTableDataTable
     
+    Private tablePerOperatorCSReport As PerOperatorCSReportDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -108,6 +110,9 @@ Partial Public Class DataSet1
             End If
             If (Not (ds.Tables("PerOperatorReportTable")) Is Nothing) Then
                 MyBase.Tables.Add(New PerOperatorReportTableDataTable(ds.Tables("PerOperatorReportTable")))
+            End If
+            If (Not (ds.Tables("PerOperatorCSReport")) Is Nothing) Then
+                MyBase.Tables.Add(New PerOperatorCSReportDataTable(ds.Tables("PerOperatorCSReport")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -238,6 +243,16 @@ Partial Public Class DataSet1
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property PerOperatorCSReport() As PerOperatorCSReportDataTable
+        Get
+            Return Me.tablePerOperatorCSReport
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -335,6 +350,9 @@ Partial Public Class DataSet1
             End If
             If (Not (ds.Tables("PerOperatorReportTable")) Is Nothing) Then
                 MyBase.Tables.Add(New PerOperatorReportTableDataTable(ds.Tables("PerOperatorReportTable")))
+            End If
+            If (Not (ds.Tables("PerOperatorCSReport")) Is Nothing) Then
+                MyBase.Tables.Add(New PerOperatorCSReportDataTable(ds.Tables("PerOperatorCSReport")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -434,6 +452,12 @@ Partial Public Class DataSet1
                 Me.tablePerOperatorReportTable.InitVars
             End If
         End If
+        Me.tablePerOperatorCSReport = CType(MyBase.Tables("PerOperatorCSReport"),PerOperatorCSReportDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablePerOperatorCSReport) Is Nothing) Then
+                Me.tablePerOperatorCSReport.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -466,6 +490,8 @@ Partial Public Class DataSet1
         MyBase.Tables.Add(Me.tableBagInventoryProductionTable)
         Me.tablePerOperatorReportTable = New PerOperatorReportTableDataTable()
         MyBase.Tables.Add(Me.tablePerOperatorReportTable)
+        Me.tablePerOperatorCSReport = New PerOperatorCSReportDataTable()
+        MyBase.Tables.Add(Me.tablePerOperatorCSReport)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -531,6 +557,12 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializePerOperatorReportTable() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializePerOperatorCSReport() As Boolean
         Return false
     End Function
     
@@ -624,6 +656,9 @@ Partial Public Class DataSet1
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub PerOperatorReportTableRowChangeEventHandler(ByVal sender As Object, ByVal e As PerOperatorReportTableRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub PerOperatorCSReportRowChangeEventHandler(ByVal sender As Object, ByVal e As PerOperatorCSReportRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -4365,6 +4400,8 @@ Partial Public Class DataSet1
         
         Private columnEFFICIENCY As Global.System.Data.DataColumn
         
+        Private columnCOUNT As Global.System.Data.DataColumn
+        
         Private columnWASTE As Global.System.Data.DataColumn
         
         Private columnNOOFWORKEDHOURS As Global.System.Data.DataColumn
@@ -4464,6 +4501,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property COUNTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCOUNT
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property WASTEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnWASTE
@@ -4523,9 +4568,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddPerOperatorReportTableRow(ByVal typeOfReport As String, ByVal groupName As String, ByVal searchType As String, ByVal dateRange As String, ByVal _date As String, ByVal NAME As String, ByVal EFFICIENCY As String, ByVal WASTE As String, ByVal NOOFWORKEDHOURS As String, ByVal LATE As String) As PerOperatorReportTableRow
+        Public Overloads Function AddPerOperatorReportTableRow(ByVal typeOfReport As String, ByVal groupName As String, ByVal searchType As String, ByVal dateRange As String, ByVal _date As String, ByVal NAME As String, ByVal EFFICIENCY As String, ByVal COUNT As String, ByVal WASTE As String, ByVal NOOFWORKEDHOURS As String, ByVal LATE As String) As PerOperatorReportTableRow
             Dim rowPerOperatorReportTableRow As PerOperatorReportTableRow = CType(Me.NewRow,PerOperatorReportTableRow)
-            Dim columnValuesArray() As Object = New Object() {typeOfReport, groupName, searchType, dateRange, _date, NAME, EFFICIENCY, WASTE, NOOFWORKEDHOURS, LATE}
+            Dim columnValuesArray() As Object = New Object() {typeOfReport, groupName, searchType, dateRange, _date, NAME, EFFICIENCY, COUNT, WASTE, NOOFWORKEDHOURS, LATE}
             rowPerOperatorReportTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPerOperatorReportTableRow)
             Return rowPerOperatorReportTableRow
@@ -4555,6 +4600,7 @@ Partial Public Class DataSet1
             Me.columndate = MyBase.Columns("date")
             Me.columnNAME = MyBase.Columns("NAME")
             Me.columnEFFICIENCY = MyBase.Columns("EFFICIENCY")
+            Me.columnCOUNT = MyBase.Columns("COUNT")
             Me.columnWASTE = MyBase.Columns("WASTE")
             Me.columnNOOFWORKEDHOURS = MyBase.Columns("NOOFWORKEDHOURS")
             Me.columnLATE = MyBase.Columns("LATE")
@@ -4580,6 +4626,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnNAME)
             Me.columnEFFICIENCY = New Global.System.Data.DataColumn("EFFICIENCY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEFFICIENCY)
+            Me.columnCOUNT = New Global.System.Data.DataColumn("COUNT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCOUNT)
             Me.columnWASTE = New Global.System.Data.DataColumn("WASTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnWASTE)
             Me.columnNOOFWORKEDHOURS = New Global.System.Data.DataColumn("NOOFWORKEDHOURS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -4676,6 +4724,380 @@ Partial Public Class DataSet1
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "PerOperatorReportTableDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class PerOperatorCSReportDataTable
+        Inherits Global.System.Data.TypedTableBase(Of PerOperatorCSReportRow)
+        
+        Private columntypeOfReport As Global.System.Data.DataColumn
+        
+        Private columngroupName As Global.System.Data.DataColumn
+        
+        Private columnsearchType As Global.System.Data.DataColumn
+        
+        Private columndateRange As Global.System.Data.DataColumn
+        
+        Private columnNAME As Global.System.Data.DataColumn
+        
+        Private columnEFFICIENCY As Global.System.Data.DataColumn
+        
+        Private columnPRODUCTIONMETERS As Global.System.Data.DataColumn
+        
+        Private columnINPUT As Global.System.Data.DataColumn
+        
+        Private columnNET As Global.System.Data.DataColumn
+        
+        Private columnREJECT As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "PerOperatorCSReport"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property typeOfReportColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntypeOfReport
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property groupNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columngroupName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property searchTypeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsearchType
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dateRangeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndateRange
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EFFICIENCYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEFFICIENCY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PRODUCTIONMETERSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRODUCTIONMETERS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property INPUTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINPUT
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NETColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNET
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property REJECTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREJECT
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As PerOperatorCSReportRow
+            Get
+                Return CType(Me.Rows(index),PerOperatorCSReportRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event PerOperatorCSReportRowChanging As PerOperatorCSReportRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event PerOperatorCSReportRowChanged As PerOperatorCSReportRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event PerOperatorCSReportRowDeleting As PerOperatorCSReportRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event PerOperatorCSReportRowDeleted As PerOperatorCSReportRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddPerOperatorCSReportRow(ByVal row As PerOperatorCSReportRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddPerOperatorCSReportRow(ByVal typeOfReport As String, ByVal groupName As String, ByVal searchType As String, ByVal dateRange As String, ByVal NAME As String, ByVal EFFICIENCY As String, ByVal PRODUCTIONMETERS As String, ByVal INPUT As String, ByVal NET As String, ByVal REJECT As String) As PerOperatorCSReportRow
+            Dim rowPerOperatorCSReportRow As PerOperatorCSReportRow = CType(Me.NewRow,PerOperatorCSReportRow)
+            Dim columnValuesArray() As Object = New Object() {typeOfReport, groupName, searchType, dateRange, NAME, EFFICIENCY, PRODUCTIONMETERS, INPUT, NET, REJECT}
+            rowPerOperatorCSReportRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowPerOperatorCSReportRow)
+            Return rowPerOperatorCSReportRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As PerOperatorCSReportDataTable = CType(MyBase.Clone,PerOperatorCSReportDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New PerOperatorCSReportDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columntypeOfReport = MyBase.Columns("typeOfReport")
+            Me.columngroupName = MyBase.Columns("groupName")
+            Me.columnsearchType = MyBase.Columns("searchType")
+            Me.columndateRange = MyBase.Columns("dateRange")
+            Me.columnNAME = MyBase.Columns("NAME")
+            Me.columnEFFICIENCY = MyBase.Columns("EFFICIENCY")
+            Me.columnPRODUCTIONMETERS = MyBase.Columns("PRODUCTIONMETERS")
+            Me.columnINPUT = MyBase.Columns("INPUT")
+            Me.columnNET = MyBase.Columns("NET")
+            Me.columnREJECT = MyBase.Columns("REJECT")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columntypeOfReport = New Global.System.Data.DataColumn("typeOfReport", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntypeOfReport)
+            Me.columngroupName = New Global.System.Data.DataColumn("groupName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columngroupName)
+            Me.columnsearchType = New Global.System.Data.DataColumn("searchType", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsearchType)
+            Me.columndateRange = New Global.System.Data.DataColumn("dateRange", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndateRange)
+            Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNAME)
+            Me.columnEFFICIENCY = New Global.System.Data.DataColumn("EFFICIENCY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEFFICIENCY)
+            Me.columnPRODUCTIONMETERS = New Global.System.Data.DataColumn("PRODUCTIONMETERS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRODUCTIONMETERS)
+            Me.columnINPUT = New Global.System.Data.DataColumn("INPUT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINPUT)
+            Me.columnNET = New Global.System.Data.DataColumn("NET", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNET)
+            Me.columnREJECT = New Global.System.Data.DataColumn("REJECT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREJECT)
+            Me.columnNAME.Caption = "RawMaterialsWidraw"
+            Me.columnPRODUCTIONMETERS.Caption = "waste"
+            Me.columnINPUT.Caption = "COUNT"
+            Me.columnNET.Caption = "netWt"
+            Me.columnREJECT.Caption = "HOURS"
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewPerOperatorCSReportRow() As PerOperatorCSReportRow
+            Return CType(Me.NewRow,PerOperatorCSReportRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New PerOperatorCSReportRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(PerOperatorCSReportRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.PerOperatorCSReportRowChangedEvent) Is Nothing) Then
+                RaiseEvent PerOperatorCSReportRowChanged(Me, New PerOperatorCSReportRowChangeEvent(CType(e.Row,PerOperatorCSReportRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.PerOperatorCSReportRowChangingEvent) Is Nothing) Then
+                RaiseEvent PerOperatorCSReportRowChanging(Me, New PerOperatorCSReportRowChangeEvent(CType(e.Row,PerOperatorCSReportRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.PerOperatorCSReportRowDeletedEvent) Is Nothing) Then
+                RaiseEvent PerOperatorCSReportRowDeleted(Me, New PerOperatorCSReportRowChangeEvent(CType(e.Row,PerOperatorCSReportRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.PerOperatorCSReportRowDeletingEvent) Is Nothing) Then
+                RaiseEvent PerOperatorCSReportRowDeleting(Me, New PerOperatorCSReportRowChangeEvent(CType(e.Row,PerOperatorCSReportRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemovePerOperatorCSReportRow(ByVal row As PerOperatorCSReportRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As DataSet1 = New DataSet1()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "PerOperatorCSReportDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -7678,6 +8100,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property COUNT() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorReportTable.COUNTColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'COUNT' in table 'PerOperatorReportTable' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorReportTable.COUNTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property WASTE() As String
             Get
                 Try 
@@ -7808,6 +8245,18 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCOUNTNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorReportTable.COUNTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCOUNTNull()
+            Me(Me.tablePerOperatorReportTable.COUNTColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsWASTENull() As Boolean
             Return Me.IsNull(Me.tablePerOperatorReportTable.WASTEColumn)
         End Function
@@ -7840,6 +8289,293 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetLATENull()
             Me(Me.tablePerOperatorReportTable.LATEColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class PerOperatorCSReportRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablePerOperatorCSReport As PerOperatorCSReportDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablePerOperatorCSReport = CType(Me.Table,PerOperatorCSReportDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property typeOfReport() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.typeOfReportColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'typeOfReport' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.typeOfReportColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property groupName() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.groupNameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'groupName' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.groupNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property searchType() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.searchTypeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'searchType' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.searchTypeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dateRange() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.dateRangeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'dateRange' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.dateRangeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NAME() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.NAMEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NAME' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property EFFICIENCY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.EFFICIENCYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EFFICIENCY' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.EFFICIENCYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PRODUCTIONMETERS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.PRODUCTIONMETERSColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PRODUCTIONMETERS' in table 'PerOperatorCSReport' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.PRODUCTIONMETERSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property INPUT() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.INPUTColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'INPUT' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.INPUTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NET() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.NETColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NET' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.NETColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property REJECT() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePerOperatorCSReport.REJECTColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REJECT' in table 'PerOperatorCSReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePerOperatorCSReport.REJECTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstypeOfReportNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.typeOfReportColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettypeOfReportNull()
+            Me(Me.tablePerOperatorCSReport.typeOfReportColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsgroupNameNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.groupNameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetgroupNameNull()
+            Me(Me.tablePerOperatorCSReport.groupNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssearchTypeNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.searchTypeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsearchTypeNull()
+            Me(Me.tablePerOperatorCSReport.searchTypeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdateRangeNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.dateRangeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdateRangeNull()
+            Me(Me.tablePerOperatorCSReport.dateRangeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNAMENull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.NAMEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNAMENull()
+            Me(Me.tablePerOperatorCSReport.NAMEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEFFICIENCYNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.EFFICIENCYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEFFICIENCYNull()
+            Me(Me.tablePerOperatorCSReport.EFFICIENCYColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPRODUCTIONMETERSNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.PRODUCTIONMETERSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPRODUCTIONMETERSNull()
+            Me(Me.tablePerOperatorCSReport.PRODUCTIONMETERSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsINPUTNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.INPUTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetINPUTNull()
+            Me(Me.tablePerOperatorCSReport.INPUTColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNETNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.NETColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNETNull()
+            Me(Me.tablePerOperatorCSReport.NETColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsREJECTNull() As Boolean
+            Return Me.IsNull(Me.tablePerOperatorCSReport.REJECTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetREJECTNull()
+            Me(Me.tablePerOperatorCSReport.REJECTColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -8225,6 +8961,42 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As PerOperatorReportTableRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class PerOperatorCSReportRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As PerOperatorCSReportRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As PerOperatorCSReportRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As PerOperatorCSReportRow
             Get
                 Return Me.eventRow
             End Get
